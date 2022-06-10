@@ -7,15 +7,15 @@ function App() {
   const [column, setColumn] = useState('')
   const [operation, setOperation] = useState('')
   const [condiition, setCondition] = useState('')
-  const setState =(column, operation, condiition) => {
+  const setIf =(column, operation, condiition) => {
     setColumn(column)
     setOperation(operation)
     setCondition(condiition)
-    console.log(column)
+    console.log(operation)
   }
   return (
     <div className="App">
-      <Filter setState = {setState} />
+      <Filter setIf = {setIf} />
       <Table />
     </div>
   );
