@@ -5,10 +5,12 @@ const Filter = (props) => {
     const [column, setColumn] = useState('')
     const [operation, setOperation] = useState('')
     // console.log(props.setState)
-    if (condition != '') {
-
-        props.setIf(column, operation, condition)
+    const setState = (e)=>{
+setCondition(e.target.value)
     }
+    useEffect(()=>{
+        props.setIf(column, operation, condition)
+    }, [condition,column,operation])
 
     return (
         <div>
@@ -16,9 +18,9 @@ const Filter = (props) => {
                 onChange={e => setColumn(e.target.value)}
             >
                 <option value="default" disabled hidden>столбец</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="title">Название</option>
+                <option value="amount">Кол-во</option>
+                <option value="distance">Расстояние</option>
             </select>
             <select defaultValue="default"
                 onChange={e => setOperation(e.target.value)}
@@ -31,7 +33,7 @@ const Filter = (props) => {
             </select>
             <input
                 value={condition}
-                onChange={e => setCondition(e.target.value)}></input>
+                onChange={ setState}></input>
         </div>
     );
 };

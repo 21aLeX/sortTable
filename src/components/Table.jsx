@@ -1,12 +1,8 @@
 import React from 'react';
 import  './style.css'
 
-const Table = () => {
-    const array = [{
-        i:'20/05/2022',
-        a: 'help',
-        b: 4, 
-        c:67}]
+const Table = (props) => {
+    
     return (
         <table>
             <thead>
@@ -18,18 +14,18 @@ const Table = () => {
                 </tr>
             </thead>
             <tbody>
-            {array.map((y, index) => (
+            {props.array.map((y, index) => (
         <tr
           align="right"
           key={index + 1}
         >
           
           <td>
-            {y.i}
+            {y.date}
           </td>
-          <td>{y.a}</td>
-          <td>{y.b}</td>
-          <td>{y.c}</td>
+          <td>{y.title}</td>
+          <td>{y.amount}</td>
+          <td>{y.distance}</td>
         </tr>
       ))}
             </tbody>
