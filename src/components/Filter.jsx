@@ -26,7 +26,7 @@ setCondition(e.target.value)
                 onChange={e => setOperation(e.target.value)}
             >
                 <option value="default" disabled hidden>операция</option>
-                <option value="=">=</option>
+                <option value="===">=</option>
                 <option value=">">&#62;</option>
                 <option value="<">&#60;</option>
                 <option value="включает">включает</option>

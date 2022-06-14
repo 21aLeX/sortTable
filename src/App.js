@@ -14,7 +14,7 @@ function App() {
     amount: 4, 
     distace:67}]
 
-    const arr = array
+    let arr = array
 
   const setIf = (column, operation, condiition) => {
     setColumn(column)
@@ -28,7 +28,9 @@ function App() {
       if((column === 'amount' || column === 'distance') && !isNaN(condiition)){
        
       arr = array.filter(a => 
-         a[column]+operation+condiition)
+       { if(a[column]+operation+condiition) return true}
+         )
+         console.log(arr)
       }
     }
   }, [column, operation, condiition])
