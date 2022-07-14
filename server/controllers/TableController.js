@@ -4,7 +4,8 @@ class TableController{
     async getAll(req,res){
         let {limit, page} = req.query
         page = page || 1
-        limit = limit || 10
+        console.log(page)
+        limit = limit || 5
         let offset = page *limit -limit
         // res.json('dsfsd')
         // console.log(await Tables.findAll())

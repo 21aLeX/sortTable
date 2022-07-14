@@ -1,9 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import  './style.css'
 
 const Table = (props) => {
-    
+  const [page, setPage] =useState()
+
+  const changePage = (p)=>{
+props.getPages(p)
+  }
     return (
+      <div>
         <table>
             <thead>
                 <tr>
@@ -30,6 +36,14 @@ const Table = (props) => {
       ))}
             </tbody>
         </table>
+{props.pages.map(p=>
+  <button
+  key={p}
+  style={{marginTop:10, cursor:'pointer'}}
+  onClick={()=>{changePage(p)}}
+  >{p}</button>
+  )}
+        </div>
     );
 };
 
