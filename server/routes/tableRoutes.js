@@ -2,6 +2,6 @@ const Router = require('express')
 const router = new Router()
 const tableController = require('../controllers/TableController')
 
- router.get('/',tableController.getTable)
+ router.get('/',tableController.getAll)
  
  module.exports = router
