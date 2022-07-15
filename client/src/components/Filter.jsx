@@ -1,16 +1,15 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Filter = (props) => {
     const [condition, setCondition] = useState('')
     const [column, setColumn] = useState('')
     const [operation, setOperation] = useState('')
-    // console.log(props.setState)
-    const setState = (e)=>{
-setCondition(e.target.value)
+    const setState = (e) => {
+        setCondition(e.target.value)
     }
-    useEffect(()=>{
+    useEffect(() => {
         props.setIf(column, operation, condition)
-    }, [condition,column,operation])
+    }, [condition, column, operation])
 
     return (
         <div>
@@ -33,7 +32,7 @@ setCondition(e.target.value)
             </select>
             <input
                 value={condition}
-                onChange={ setState}></input>
+                onChange={setState}></input>
         </div>
     );
 };

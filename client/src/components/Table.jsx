@@ -3,9 +3,10 @@ import { useState } from 'react';
 import  './style.css'
 
 const Table = (props) => {
-  const [page, setPage] =useState()
+  const [page, setPage] = useState(1)
 
   const changePage = (p)=>{
+    setPage(p)
 props.getPages(p)
   }
     return (
@@ -39,7 +40,7 @@ props.getPages(p)
 {props.pages.map(p=>
   <button
   key={p}
-  style={{marginTop:10, cursor:'pointer'}}
+  className={page === p ? 'page page_current' : 'page'}
   onClick={()=>{changePage(p)}}
   >{p}</button>
   )}

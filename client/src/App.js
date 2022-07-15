@@ -4,7 +4,6 @@ import Filter from './components/Filter';
 import Table from './components/Table';
 import { fetchData } from './http/dataAPI';
 import { getPagesArray, getPagesCount } from './utils/pages';
-// import GetData from './components/bd';
 
 function App() {
   const [column, setColumn] = useState('')
@@ -16,6 +15,8 @@ function App() {
   const [page, setPage] = useState(1)
   let limit = 5
   let pagesArray = getPagesArray(totalPages)
+  let arr = array
+
 
   useEffect(() => {
     fetchData(page).then(data => {
@@ -34,14 +35,13 @@ function App() {
       getArray(JSON.parse(localStorage.getItem('data')))
       setTotalPages(getPagesCount(data.count, limit))
     })
+
+    arr = array
   }, [page])
-  
-  const GetPages = (p)=>{
-    console.log(p)
+
+  const GetPages = (p) => {
     setPage(p)
   }
-  // console.log(pagesArray)
-  let arr = array
 
   const setIf = (column, operation, condiition) => {
     setColumn(column)
@@ -72,11 +72,11 @@ function App() {
 
     }
 
-  }, [column, operation, condiition])
+  }, [column, operation, condiition, arr])
   return (
     <div className="App">
       <Filter setIf={setIf} />
-      <Table array={arr} pages={pagesArray} getPages={GetPages}/>
+      <Table array={arr} pages={pagesArray} getPages={GetPages} />
     </div>
   );
 }
